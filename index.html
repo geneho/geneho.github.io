@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gene Ho · Web Application Manager</title>
+<meta name="description" content="Gene Ho leads the engineering squads behind Scoot's booking, payments and loyalty web platforms. Engineering leader in airline eCommerce, Singapore.">
+<meta property="og:title" content="Gene Ho · Web Application Manager">
+<meta property="og:description" content="Engineering leader in airline eCommerce: booking, payments and loyalty platforms.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://geneho.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f6e8c'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EGH%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f5f1;
+    --card: #ffffff;
+    --ink: #14202b;
+    --muted: #5b6672;
+    --line: #e2dfd7;
+    --accent: #0f6e8c;
+    --accent-2: #1f9e86;
+    --accent-soft: #e3f1f2;
+    --shadow: 0 1px 2px rgba(20, 32, 43, .04), 0 8px 24px rgba(20, 32, 43, .06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1318;
+      --card: #141c23;
+      --ink: #e6ecf0;
+      --muted: #92a0ab;
+      --line: #23313b;
+      --accent: #5cc3dc;
+      --accent-2: #45d1b2;
+      --accent-soft: #15303a;
+      --shadow: none;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 17px/1.65 "IBM Plex Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--accent-2); }
+  h1, h2, h3 { font-family: "Space Grotesk", system-ui, sans-serif; line-height: 1.15; margin: 0; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo {
+    font: 700 15px "Space Grotesk", sans-serif; letter-spacing: .02em;
+    color: var(--ink); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .logo span {
+    display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px;
+    background: var(--accent); color: #fff; font-size: 13px;
+  }
+  nav ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 15px; }
+  nav ul a:hover { color: var(--ink); }
+  @media (max-width: 680px) { nav ul li:not(:last-child) { display: none; } }
+
+  /* Hero */
+  .hero { padding: 88px 0 64px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font: 500 13px "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent-2);
+  }
+  .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 4px var(--accent-soft); }
+  .hero h1 { font-size: clamp(3rem, 10vw, 6.4rem); letter-spacing: -.03em; margin: 18px 0 6px; }
+  .hero .role { font: 500 clamp(1.15rem, 2.6vw, 1.5rem)/1.3 "Space Grotesk", sans-serif; color: var(--muted); margin: 0 0 28px; }
+  .hero .lede { font-size: clamp(1.1rem, 2.2vw, 1.3rem); max-width: 40ch; margin: 0 0 36px; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--card); color: var(--ink); text-decoration: none; font-weight: 500; font-size: 15px;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.primary:hover { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn.primary, .btn.primary:hover { color: #0d1318; } }
+  .btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+  /* Stats */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--line); border-radius: 16px; background: var(--card); box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .stat { padding: 26px 24px; border-left: 1px solid var(--line); }
+  .stat:first-child { border-left: 0; }
+  .stat b { display: block; font: 700 clamp(1.9rem, 4vw, 2.5rem)/1 "Space Grotesk", sans-serif; color: var(--accent); margin-bottom: 8px; }
+  .stat span { color: var(--muted); font-size: 15px; line-height: 1.4; display: block; }
+  @media (max-width: 760px) {
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(3) { border-left: 0; }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+
+  /* Sections */
+  section { padding: 80px 0 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; }
+  .sec-head .num { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent-2); }
+  .sec-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.2rem); letter-spacing: -.01em; }
+  .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; }
+  .about p { margin: 0 0 18px; }
+  .facts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .facts li span:first-child { color: var(--muted); }
+  .facts li span:last-child { text-align: right; }
+  @media (max-width: 760px) { .about { grid-template-columns: 1fr; gap: 28px; } }
+
+  /* Timeline */
+  .timeline { position: relative; }
+  .job { display: grid; grid-template-columns: 190px 1fr; gap: 36px; padding-bottom: 48px; position: relative; }
+  .job .when { font: 500 14px/1.5 "IBM Plex Mono", monospace; color: var(--muted); padding-top: 4px; }
+  .job .body { position: relative; padding-left: 32px; border-left: 2px dashed var(--line); padding-bottom: 4px; }
+  .job .body::before {
+    content: ""; position: absolute; left: -8px; top: 6px; width: 14px; height: 14px; border-radius: 50%;
+    background: var(--bg); border: 3px solid var(--accent);
+  }
+  .job.current .body::before { background: var(--accent); box-shadow: 0 0 0 5px var(--accent-soft); }
+  .job h3 { font-size: 1.35rem; }
+  .job .org { color: var(--accent); font-weight: 500; margin: 4px 0 14px; }
+  .job .org small { color: var(--muted); font-weight: 400; }
+  .job .summary { margin: 0 0 14px; color: var(--muted); }
+  .job ul { margin: 0; padding-left: 20px; }
+  .job li { margin-bottom: 8px; }
+  .job li::marker { color: var(--accent-2); }
+  .sub-role { margin-top: 26px; }
+  .sub-role .when-inline { font: 500 13px "IBM Plex Mono", monospace; color: var(--muted); display: block; margin: 2px 0 10px; }
+  .tag { display: inline-block; font: 500 12px "IBM Plex Mono", monospace; letter-spacing: .04em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); vertical-align: middle; margin-left: 8px; }
+  .earlier { list-style: none; margin: 0; padding: 0; }
+  .earlier li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .earlier li:last-child { border-bottom: 0; }
+  .earlier b { font-weight: 600; }
+  .earlier .d { display: block; font: 500 13px "IBM Plex Mono", monospace; color: var(--muted); }
+  .earlier p { margin: 4px 0 0; font-size: 15px; color: var(--muted); }
+  @media (max-width: 760px) {
+    .job { grid-template-columns: 1fr; gap: 6px; }
+    .job .when { padding-left: 34px; }
+  }
+
+  /* Cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px;
+    box-shadow: var(--shadow); display: flex; flex-direction: column;
+  }
+  .card .kicker { font: 500 12px "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 10px; }
+  .card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+  .card p { margin: 0 0 16px; color: var(--muted); font-size: 15.5px; }
+  .card .foot { margin-top: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font: 500 12.5px "IBM Plex Mono", monospace; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted); }
+  .card a.more { font-size: 15px; font-weight: 500; margin-top: 14px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 32px; }
+  .skills h3 { font-size: 1rem; margin-bottom: 14px; color: var(--accent); }
+  .skills ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .skills li { font-size: 14.5px; padding: 6px 12px; border-radius: 8px; background: var(--card); border: 1px solid var(--line); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .list li { padding: 14px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; }
+  .list li .y { font: 500 14px "IBM Plex Mono", monospace; color: var(--muted); white-space: nowrap; }
+  .list li small { display: block; color: var(--muted); font-size: 14px; }
+  .sub-h { font-size: 1.15rem; margin-bottom: 16px; }
+  @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* Contact */
+  .contact {
+    margin-top: 96px; padding: 56px 40px; border-radius: 24px;
+    background: var(--accent); color: #fff; text-align: center;
+  }
+  .contact h2 { font-size: clamp(1.9rem, 5vw, 3rem); letter-spacing: -.02em; margin-bottom: 14px; }
+  .contact p { margin: 0 auto 28px; max-width: 46ch; opacity: .9; }
+  .contact .links { justify-content: center; }
+  .contact .btn { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.3); color: #fff; }
+  .contact .btn:hover { background: #fff; color: var(--accent); border-color: #fff; }
+  @media (prefers-color-scheme: dark) {
+    .contact { background: var(--accent-soft); color: var(--ink); border: 1px solid var(--line); }
+    .contact .btn { background: var(--card); border-color: var(--line); color: var(--ink); }
+    .contact .btn:hover { border-color: var(--accent); color: var(--accent); background: var(--card); }
+  }
+  @media (max-width: 560px) { .contact { padding: 44px 22px; } }
+
+  footer { padding: 40px 0 48px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  @media print {
+    nav, .contact .links, .hero .links { display: none; }
+    body { background: #fff; font-size: 12pt; }
+    section { padding-top: 28px; break-inside: avoid-page; }
+    .hero { padding: 0 0 20px; }
+    .card, .stats { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><span>GH</span>Gene Ho</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <header class="hero">
+    <div class="eyebrow">Singapore · Airline eCommerce</div>
+    <h1>Gene Ho</h1>
+    <p class="role">Web Application Manager at Scoot, a member of Singapore Airlines</p>
+    <p class="lede">I lead the engineering squads behind Scoot's booking, payments and loyalty web platforms, turning legacy systems into secure, scalable products.</p>
+    <div class="links">
+      <a class="btn primary" href="https://www.linkedin.com/in/genehojj" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn" href="https://github.com/geneho" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+        GitHub
+      </a>
+      <a class="btn" href="https://stackoverflow.com/users/2737131/gene" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.99 21.97v-6.4h2.13V24H2.88v-8.43h2.12v6.4h13.99zM7.22 15.2l.43-2.08 10.4 2.18-.43 2.08-10.4-2.18zm1.37-4.97.88-1.95 9.63 4.5-.88 1.93-9.63-4.48zm2.67-4.72 1.37-1.63 8.16 6.82-1.36 1.63-8.17-6.82zM16.53.53l6.33 8.53-1.7 1.27-6.33-8.53L16.53.53zM7.01 19.86v-2.13h10.6v2.13H7z"/></svg>
+        Stack Overflow
+      </a>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>20+</b><span>engineers led across 8+ agile squads</span></div>
+    <div class="stat"><b>14+</b><span>payment methods onboarded in-house</span></div>
+    <div class="stat"><b>7+</b><span>legacy web apps modernised to SPA</span></div>
+    <div class="stat"><b>10+</b><span>years building software, since 2015</span></div>
+  </div>
+
+  <section id="about">
+    <div class="sec-head"><span class="num">01</span><h2>About</h2></div>
+    <div class="about">
+      <div>
+        <p>I take initiative and adapt quickly to change. Over the past decade I've moved from writing code to leading engineering teams across e-commerce, travel retail and aviation, most recently within the Singapore Airlines group.</p>
+        <p>At Scoot I lead cross-functional agile squads that deliver across B2B, B2C and loyalty platforms: Manage My Booking, Payments, Ancillaries and AgencyHub. My work sits where technical delivery meets business strategy. I modernise platforms, scale the architecture, and build teams that own customer journeys end to end.</p>
+        <p>I do my best work in fast-paced environments where innovation, ownership and collaboration drive transformation.</p>
+      </div>
+      <ul class="facts">
+        <li><span>Currently</span><span>Web Application Manager, Scoot</span></li>
+        <li><span>Based in</span><span>Singapore</span></li>
+        <li><span>Domains</span><span>Airline eCommerce, payments, loyalty</span></li>
+        <li><span>Languages</span><span>English, Chinese</span></li>
+        <li><span>Education</span><span>BSc (Hons) Computing Science, SIT × University of Glasgow</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><span class="num">02</span><h2>Experience</h2></div>
+    <div class="timeline">
+
+      <article class="job current">
+        <div class="when">Dec 2023 – Present</div>
+        <div class="body">
+          <h3>Web Application Manager (eCommerce) <span class="tag">Current</span></h3>
+          <div class="org">Scoot <small>· a member of Singapore Airlines</small></div>
+          <p class="summary">Oversee squads across Scoot's B2B, B2C and Loyalty domains, combining technical direction with product alignment.</p>
+          <ul>
+            <li>Lead 8+ agile squads (20+ engineers) across web and mobile, driving high-performance delivery across complex digital domains.</li>
+            <li>Unified the mobile and web tracks into cross-platform full-stack squads (Web + Flutter). This removed handover overhead and gave each squad end-to-end ownership of its customer journeys.</li>
+            <li>Delivered <strong>Scoot Award Chart</strong> and <strong>Spontaneous Escape</strong>, letting KrisFlyer members redeem miles directly for Scoot flights. Millions of miles have been redeemed since launch.</li>
+            <li>Replaced third-party MCP and DCC vendors with an in-house <strong>Hosted Payment Page</strong>, onboarding 14+ payment methods across 5 mission-critical platforms.</li>
+            <li>Modernised 7+ legacy web applications onto a secure, scalable SPA and API-first stack, with reusable architecture patterns shared across squads.</li>
+            <li>Own the team's security and compliance posture: dev leads remediate Qualys and VAPT findings before every production deployment.</li>
+            <li>Piloting an AI-augmented SDLC on top of the team's TDD practice, measuring its impact on delivery quality and velocity before wider adoption.</li>
+            <li>Mentor lead engineers and squads on technical excellence, agile maturity and delivery accountability.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="when">Feb 2020 – Nov 2023</div>
+        <div class="body">
+          <h3>Engineering Manager</h3>
+          <div class="org">KrisShop <small>· a member of Singapore Airlines</small></div>
+          <span class="when-inline">Mar 2022 – Nov 2023</span>
+          <ul>
+            <li>Led a team of 12 engineers across mobile, web and backend, improving team productivity by 25% through clearer delivery practices and ownership models.</li>
+            <li>Headed development across KrisShop mobile (Kris+), the e-commerce API platform, the microservices backend, and KrisBuddy, the inflight POS app for Scoot and SIA flights.</li>
+            <li>Sat on the technical committee for the Adobe Experience Manager and Adobe Commerce migration, directing order orchestration, stock services, shipment tracking and preorder-to-inflight.</li>
+            <li>Led KrisShop's Web3 initiatives (NFTs and cryptocurrency payments) and pitched the architecture to SIA C-suite at Demo Day.</li>
+          </ul>
+
+          <div class="sub-role">
+            <h3>Technical Lead</h3>
+            <span class="when-inline">Feb 2020 – Mar 2022</span>
+            <ul>
+              <li>Owned the architecture of microservices on KrisCloud (AWS), handling high-volume international tax, duty and multi-currency flows.</li>
+              <li>Led a team of 8 developers, business analysts and QA engineers building the microservices and back-office platform.</li>
+              <li>Enabled multiple currencies on KrisShop.com and introduced Buy Now Pay Later with Atome, the first in the SIA group to offer it.</li>
+              <li>Designed the API integration for DBS Travel Marketplace × KrisShop, which reached 6-figure transaction value within weeks of go-live.</li>
+              <li>Optimised the API architecture and led penetration-testing reviews for public-facing endpoints.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="when">2015 – 2020</div>
+        <div class="body">
+          <h3>Earlier roles</h3>
+          <ul class="earlier">
+            <li>
+              <b>Software Lead</b>, ST Engineering
+              <span class="d">Oct 2019 – Feb 2020</span>
+            </li>
+            <li>
+              <b>System Analyst</b>, Keppel Logistics (now GEODIS)
+              <span class="d">Dec 2017 – Oct 2019</span>
+              <p>Built a cloud mobile app on React Native and the AWS serverless stack (Lambda, DynamoDB, API Gateway).</p>
+            </li>
+            <li>
+              <b>Software Specialist · Software Engineer</b>, ST Electronics (Info-Software Systems)
+              <span class="d">Jun 2015 – Dec 2017</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head"><span class="num">03</span><h2>Selected work &amp; recognition</h2></div>
+    <div class="cards">
+      <div class="card">
+        <div class="kicker">Scoot · Loyalty</div>
+        <h3>Award Chart &amp; Spontaneous Escape</h3>
+        <p>KrisFlyer members can redeem miles directly for Scoot flights and ancillaries. Millions of miles have been redeemed since launch, driving revenue growth.</p>
+        <div class="foot"><span class="chip">Loyalty</span><span class="chip">B2C</span></div>
+      </div>
+      <div class="card">
+        <div class="kicker">Scoot · Payments</div>
+        <h3>In-house Hosted Payment Page</h3>
+        <p>Brought multi-currency pricing and dynamic currency conversion in-house, replacing third-party vendors and onboarding 14+ payment methods across 5 platforms.</p>
+        <div class="foot"><span class="chip">Payments</span><span class="chip">FX</span><span class="chip">Security</span></div>
+      </div>
+      <div class="card">
+        <div class="kicker">Recognition · 2022</div>
+        <h3>SIA Demo Day: crypto payments</h3>
+        <p>Certificate of Recognition for pitching cryptocurrency payments on KrisShop.com to Singapore Airlines C-suite, with the technical feasibility and architecture proposal behind it.</p>
+        <div class="foot"><span class="chip">Web3</span><span class="chip">Architecture</span></div>
+      </div>
+      <div class="card">
+        <div class="kicker">Side project · Co-founder</div>
+        <h3>Parkar</h3>
+        <p>A mobile app for drivers in Singapore, built with three friends during COVID-19. It shows the nearest and cheapest carparks, EV charging, fuel prices, live traffic cameras and COE prices.</p>
+        <div class="foot"><span class="chip">Flutter</span><span class="chip">AWS</span></div>
+        <a class="more" href="https://github.com/geneho/ParkarSite" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+      <div class="card">
+        <div class="kicker">Recognition · 2019</div>
+        <h3>KTT Safety mobile app</h3>
+        <p>Gold Award at the Keppel Safety Innovation Movement for a safety app built with React Native and AWS serverless technologies.</p>
+        <div class="foot"><span class="chip">React Native</span><span class="chip">Serverless</span></div>
+        <a class="more" href="https://github.com/geneho/Serverless-React-Native-News-App" target="_blank" rel="noopener">Related repo →</a>
+      </div>
+      <div class="card">
+        <div class="kicker">Learning · 2021</div>
+        <h3>Smart Contract Developer Bootcamp</h3>
+        <p>Completed the Chainlink Labs bootcamp, building and testing smart contracts with Hardhat.</p>
+        <div class="foot"><span class="chip">Solidity</span><span class="chip">Hardhat</span></div>
+        <a class="more" href="https://github.com/geneho/dev-bootcamp-hardhat" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><span class="num">04</span><h2>Skills</h2></div>
+    <div class="skills">
+      <div>
+        <h3>Leadership &amp; delivery</h3>
+        <ul><li>Engineering management</li><li>Agile squads</li><li>Scrum (CSM)</li><li>Mentoring</li><li>Project management</li><li>Technical solutioning</li></ul>
+      </div>
+      <div>
+        <h3>Architecture</h3>
+        <ul><li>SPA &amp; API-first</li><li>Microservices</li><li>API management</li><li>Payments &amp; multi-currency</li><li>AWS serverless</li></ul>
+      </div>
+      <div>
+        <h3>Engineering</h3>
+        <ul><li>JavaScript</li><li>Flutter</li><li>React Native</li><li>Ionic</li><li>AngularJS</li><li>REST APIs</li><li>AWS Lambda</li><li>IoT</li></ul>
+      </div>
+      <div>
+        <h3>Security &amp; quality</h3>
+        <ul><li>DevSecOps</li><li>VAPT &amp; Qualys remediation</li><li>CISSP trained</li><li>TDD</li><li>ISTQB testing</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <div class="two-col">
+      <div>
+        <div class="sec-head"><span class="num">05</span><h2>Certifications</h2></div>
+        <ul class="list">
+          <li><span>AWS Technical Essentials</span><span class="y">2023</span></li>
+          <li><span>Smart Contract Developer Bootcamp<small>Chainlink Labs</small></span><span class="y">2021</span></li>
+          <li><span>Certified Information Systems Security Professional<small>CISSP trained (SkillsFuture)</small></span><span class="y">2020</span></li>
+          <li><span>Certified ScrumMaster</span><span class="y">2018</span></li>
+          <li><span>ISTQB-BCS Certified Tester, Foundation Level</span><span class="y">2017</span></li>
+          <li><span>Oracle Certified Associate 11g</span><span class="y">2009</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="sec-head"><span class="num">06</span><h2>Education &amp; awards</h2></div>
+        <ul class="list">
+          <li><span>BSc (Hons) Computing Science, 2nd Class Honours<small>Singapore Institute of Technology × University of Glasgow</small></span><span class="y">2015</span></li>
+          <li><span>Diploma in Information Technology<small>Nanyang Polytechnic</small></span><span class="y">2011</span></li>
+          <li><span>Certificate of Recognition<small>Singapore Airlines Demo Day</small></span><span class="y">2022</span></li>
+          <li><span>Gold Award<small>Keppel Safety Innovation Movement</small></span><span class="y">2019</span></li>
+          <li><span>Employee of the Month nominee<small>Keppel Logistics Australia</small></span><span class="y">2018</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Let's talk</h2>
+    <p>I'm always happy to connect about engineering leadership, airline eCommerce or digital payments.</p>
+    <div class="links">
+      <a class="btn" href="https://www.linkedin.com/in/genehojj" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="btn" href="https://github.com/geneho" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Gene Ho</span>
+    <span class="mono">geneho.github.io</span>
+  </footer>
+
+</main>
+</body>
+</html>
