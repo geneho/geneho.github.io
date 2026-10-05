@@ -3,123 +3,241 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gene Ho — Engineering Leader, Airline eCommerce</title>
-<meta name="description" content="Gene Ho leads web and mobile engineering across airline booking, payments and loyalty in Singapore.">
-<meta property="og:title" content="Gene Ho — Engineering Leader, Airline eCommerce">
-<meta property="og:description" content="Airline commerce, payments, loyalty, engineering leadership — and the systems behind them.">
-<meta property="og:type" content="website">
+<title>Gene Ho — Engineering Leader, Airline Commerce</title>
+<meta name="description" content="Gene Ho leads engineering across airline booking, payments, loyalty and web platforms in Singapore.">
+<meta name="theme-color" content="#111315">
+
 <style>
 :root{
-  --bg:#f4f1ea; --paper:#fffdfa; --ink:#151a1f; --muted:#687078;
-  --line:#d9d3c8; --accent:#0c6d78; --soft:#dcebed; --code:#20272c;
+  --bg:#f2efe8;
+  --paper:#fbfaf6;
+  --ink:#14171a;
+  --muted:#676d72;
+  --line:#d9d4ca;
+  --accent:#d6a900;
+  --accent-ink:#6d5600;
+  --dark:#111315;
+  --dark-muted:#aeb5ba;
+  --max:1120px;
 }
 @media(prefers-color-scheme:dark){
-  :root{--bg:#111416;--paper:#171b1e;--ink:#edf0f2;--muted:#9ca5ab;--line:#2c3439;--accent:#66c5cf;--soft:#18353a;--code:#0e1113}
+  :root{
+    --bg:#0f1113;
+    --paper:#15181b;
+    --ink:#f0f2f3;
+    --muted:#9ca3a8;
+    --line:#2b3034;
+    --accent:#e2bd31;
+    --accent-ink:#f0d66c;
+    --dark:#090b0c;
+    --dark-muted:#aeb5ba;
+  }
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{
   margin:0;background:var(--bg);color:var(--ink);
-  font:16px/1.65 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font:16px/1.65 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:4px}
-a:hover{color:var(--accent)}
-.wrap{max-width:1040px;margin:auto;padding:0 24px}
-nav{
-  position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)
-}
-nav .wrap{height:58px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-weight:750;text-decoration:none}
-nav .links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
-@media(max-width:640px){nav .links a:not(:last-child){display:none}}
+a:hover{color:var(--accent-ink)}
+.wrap{max-width:var(--max);margin:auto;padding:0 26px}
 
-.hero{padding:92px 0 64px}
-.kicker{
-  font:600 12px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--accent)
+nav{
+  position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px)
+}
+nav .wrap{height:60px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:780;letter-spacing:-.02em;text-decoration:none}
+.navlinks{display:flex;gap:22px;font-size:13px;color:var(--muted)}
+@media(max-width:720px){.navlinks a:not(:last-child){display:none}}
+
+.hero{min-height:78vh;display:grid;align-content:center;padding:88px 0 66px}
+.eyebrow{
+  font:650 12px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;
+  text-transform:uppercase;letter-spacing:.09em;color:var(--accent-ink)
 }
 .hero h1{
-  max-width:900px;margin:15px 0 22px;font-size:clamp(2.8rem,7vw,5.8rem);
-  line-height:.98;letter-spacing:-.055em;font-weight:780
+  max-width:970px;margin:14px 0 22px;font-size:clamp(3rem,8vw,6.8rem);
+  line-height:.94;letter-spacing:-.06em;font-weight:790
 }
-.hero h1 span{color:var(--accent)}
-.hero .lede{max-width:720px;font-size:clamp(1.08rem,2vw,1.3rem);color:var(--muted)}
-.hero .now{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 26px;font-size:14px}
-.hero .now b{color:var(--ink)}
+.hero h1 em{
+  font-style:normal;text-decoration:underline;text-decoration-color:var(--accent);
+  text-decoration-thickness:.08em;text-underline-offset:.08em
+}
+.lede{max-width:790px;margin:0;color:var(--muted);font-size:clamp(1.08rem,2vw,1.28rem)}
+.now{
+  margin-top:34px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;gap:10px 28px;flex-wrap:wrap;font-size:14px
+}
+.now b{color:var(--ink)}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .btn{
-  display:inline-flex;align-items:center;padding:10px 14px;border:1px solid var(--line);
-  border-radius:7px;background:var(--paper);text-decoration:none;font-weight:650;font-size:14px
+  display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);
+  border-radius:7px;background:var(--paper);text-decoration:none;font-weight:700;font-size:14px
 }
-.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn.primary{background:var(--dark);border-color:var(--dark);color:#fff}
 .btn:hover{border-color:var(--accent)}
 
-section{padding:76px 0 0}
-.sec-head{display:grid;grid-template-columns:170px 1fr;gap:28px;margin-bottom:34px}
-.sec-head .label{font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
-.sec-head h2{margin:0;font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.035em;line-height:1.05}
-.sec-head p{max-width:650px;margin:10px 0 0;color:var(--muted)}
-@media(max-width:720px){.sec-head{grid-template-columns:1fr;gap:8px}}
+section{padding:82px 0 0}
+.section-head{display:grid;grid-template-columns:170px 1fr;gap:32px;margin-bottom:34px}
+.section-head h2{
+  max-width:820px;margin:0;font-size:clamp(2rem,4.5vw,3.5rem);
+  line-height:1.02;letter-spacing:-.045em
+}
+.section-head p{max-width:720px;margin:13px 0 0;color:var(--muted)}
+@media(max-width:760px){.section-head{grid-template-columns:1fr;gap:9px}}
+
+.scope{
+  display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;background:var(--paper)
+}
+.scope>div{padding:20px;min-height:120px;border-right:1px solid var(--line)}
+.scope>div:last-child{border-right:0}
+.scope small{display:block;color:var(--muted);font-size:12px;margin-bottom:12px}
+.scope strong{display:block;font-size:1.08rem;line-height:1.35}
+@media(max-width:800px){
+  .scope{grid-template-columns:1fr 1fr}
+  .scope>div:nth-child(2){border-right:0}
+  .scope>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media(max-width:500px){
+  .scope{grid-template-columns:1fr}
+  .scope>div{border-right:0;border-bottom:1px solid var(--line)}
+  .scope>div:last-child{border-bottom:0}
+}
 
 .case{
-  border-top:1px solid var(--line);padding:38px 0 48px;
-  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:52px
+  border-top:1px solid var(--line);padding:42px 0 52px;
+  display:grid;grid-template-columns:minmax(0,1.18fr) minmax(310px,.82fr);gap:56px
 }
 .case:last-child{border-bottom:1px solid var(--line)}
-.case h3{font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.12;letter-spacing:-.025em;margin:7px 0 16px}
+.case h3{
+  margin:7px 0 16px;font-size:clamp(1.65rem,3.4vw,2.5rem);
+  line-height:1.08;letter-spacing:-.035em
+}
 .case p{margin:0 0 18px;color:var(--muted)}
 .case strong{color:var(--ink)}
-.metric{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
-.metric span{padding:6px 9px;border:1px solid var(--line);border-radius:5px;font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace}
-.diagram{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px}
-.diagram .title{font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
-.flow{display:grid;gap:8px}
-.node{border:1px solid var(--line);background:var(--bg);padding:10px 12px;border-radius:6px;font-size:13px;font-weight:650}
-.node.accent{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
-.arrow{text-align:center;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-@media(max-width:780px){.case{grid-template-columns:1fr;gap:24px}}
 
-.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.principle{border-top:2px solid var(--ink);padding-top:18px}
-.principle h3{font-size:1.05rem;margin:0 0 10px}
-.principle p{margin:0;color:var(--muted);font-size:15px}
-@media(max-width:760px){.principles{grid-template-columns:1fr}}
+.factgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.fact{border:1px solid var(--line);border-radius:7px;padding:12px 13px;background:var(--paper)}
+.fact small{
+  display:block;font:650 10px ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px
+}
+.fact span{font-size:13px;font-weight:650}
+
+.myrole{
+  margin:22px 0 0;padding:15px 16px;border-left:3px solid var(--accent);
+  background:color-mix(in srgb,var(--paper) 94%,var(--accent));border-radius:0 7px 7px 0
+}
+.myrole small{
+  display:block;margin-bottom:5px;font:700 10px ui-monospace,SFMono-Regular,Menlo,monospace;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--accent-ink)
+}
+.myrole p{margin:0;color:var(--ink);font-size:14px}
+
+.diagram{
+  align-self:start;position:sticky;top:88px;border:1px solid var(--line);
+  border-radius:10px;background:var(--paper);padding:18px
+}
+.diagram-title{
+  margin-bottom:14px;font:650 10px ui-monospace,SFMono-Regular,Menlo,monospace;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--muted)
+}
+.flow{display:grid;gap:8px}
+.node{
+  padding:11px 12px;border:1px solid var(--line);border-radius:7px;
+  background:var(--bg);font-size:13px;font-weight:680
+}
+.node.accent{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+.arrow{text-align:center;color:var(--muted);font:12px ui-monospace,SFMono-Regular,Menlo,monospace}
+@media(max-width:820px){.case{grid-template-columns:1fr;gap:26px}.diagram{position:static}}
+
+.operating{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.op{padding:22px;border-top:3px solid var(--ink);background:var(--paper)}
+.op h3{margin:0 0 10px;font-size:1.08rem}
+.op p{margin:0;color:var(--muted);font-size:14.5px}
+@media(max-width:760px){.operating{grid-template-columns:1fr}}
+
+.footprint{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stack{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:22px}
+.stack h3{margin:0 0 16px;font-size:1.05rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  padding:6px 9px;border:1px solid var(--line);border-radius:999px;
+  font:650 12px ui-monospace,SFMono-Regular,Menlo,monospace
+}
+@media(max-width:680px){.footprint{grid-template-columns:1fr}}
+
+.ai{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:30px;padding:30px;
+  border-radius:12px;background:var(--dark);color:#fff
+}
+.ai p{color:var(--dark-muted);margin:0 0 16px}
+.ai h3{margin:7px 0 15px;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.08}
+.eval{display:grid;gap:8px}
+.eval .row{border:1px solid #2d3236;border-radius:7px;padding:11px 12px;font-size:13px}
+.eval b{color:#fff}
+.eval span{color:var(--dark-muted)}
+@media(max-width:760px){.ai{grid-template-columns:1fr;padding:23px}}
 
 .career{border-top:1px solid var(--line)}
-.role{display:grid;grid-template-columns:170px 1fr;gap:28px;padding:24px 0;border-bottom:1px solid var(--line)}
-.role time{font:500 13px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}
+.role{display:grid;grid-template-columns:180px 1fr;gap:30px;padding:24px 0;border-bottom:1px solid var(--line)}
+.role time{color:var(--muted);font:500 13px ui-monospace,SFMono-Regular,Menlo,monospace}
 .role h3{margin:0;font-size:1rem}
 .role p{margin:4px 0 0;color:var(--muted);font-size:14.5px}
-@media(max-width:680px){.role{grid-template-columns:1fr;gap:6px}}
+@media(max-width:650px){.role{grid-template-columns:1fr;gap:6px}}
 
 .side{
-  display:grid;grid-template-columns:1.1fr .9fr;gap:44px;padding:36px;border:1px solid var(--line);
-  background:var(--paper);border-radius:10px
+  display:grid;grid-template-columns:1.05fr .95fr;gap:38px;padding:34px;
+  border:1px solid var(--line);border-radius:10px;background:var(--paper)
 }
-.side h3{font-size:1.6rem;margin:6px 0 12px;letter-spacing:-.02em}
+.side h3{margin:7px 0 13px;font-size:1.7rem;letter-spacing:-.025em}
 .side p{margin:0 0 14px;color:var(--muted)}
-.side .tiny{font-size:13px}
-.side-code{
-  background:var(--code);color:#e9f0f2;border-radius:8px;padding:20px;
-  font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;overflow:auto;white-space:pre
+.code{
+  margin:0;overflow:auto;border-radius:8px;background:var(--dark);color:#ecf1f2;
+  padding:20px;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace
 }
-@media(max-width:760px){.side{grid-template-columns:1fr;padding:24px}}
+@media(max-width:820px){.side{grid-template-columns:1fr;padding:24px}}
 
-.footer-cta{margin:86px 0 36px;padding:42px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.footer-cta h2{font-size:clamp(2rem,5vw,3.6rem);line-height:1;letter-spacing:-.04em;margin:0 0 18px}
-.footer-cta p{max-width:620px;color:var(--muted);margin:0 0 22px}
-footer{padding:0 0 44px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.footer-cta{
+  margin:86px 0 36px;padding:46px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+.footer-cta h2{
+  max-width:850px;margin:7px 0 18px;font-size:clamp(2.1rem,5vw,4rem);
+  line-height:1;letter-spacing:-.045em
+}
+.footer-cta p{max-width:650px;color:var(--muted)}
+footer{
+  padding:0 0 44px;display:flex;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted)
+}
+@media(max-width:480px){
+  .wrap{padding:0 20px}
+  .side{padding:20px}
+  .code{padding:16px;font-size:12px}
+}
+@media(max-width:380px){.factgrid{grid-template-columns:1fr}}
+@media print{
+  nav,.actions{display:none}
+  body{background:#fff;color:#111}
+  section{padding-top:48px}
+  .hero{min-height:auto;padding-top:40px}
+  .diagram{position:static}
+  a{text-decoration:none}
+}
 </style>
 </head>
+
 <body>
 <nav>
   <div class="wrap">
     <a class="brand" href="#top">Gene Ho</a>
-    <div class="links">
+    <div class="navlinks">
       <a href="#systems">Systems</a>
-      <a href="#how">How I work</a>
+      <a href="#operating">Operating model</a>
       <a href="#career">Career</a>
       <a href="#side">Side project</a>
       <a href="#contact">Contact</a>
@@ -129,179 +247,354 @@ footer{padding:0 0 44px;display:flex;justify-content:space-between;gap:20px;flex
 
 <main class="wrap" id="top">
   <header class="hero">
-    <div class="kicker">Singapore · Airline eCommerce · Engineering leadership</div>
-    <h1>I build airline commerce systems people mostly notice <span>when they break.</span></h1>
+    <div class="eyebrow">Singapore · Airline commerce · Engineering leadership</div>
+    <h1>I build airline commerce systems people mostly notice <em>when they break.</em></h1>
     <p class="lede">
-      I lead web and mobile engineering at Scoot across booking, payments and loyalty.
-      I started as a software engineer; today my job is to make complicated systems simpler,
-      give teams real ownership, and keep critical customer journeys boringly reliable.
+      I lead web and mobile engineering at Scoot across booking, payments, loyalty and customer platforms.
+      I started as a software engineer. Today my job is to simplify difficult systems, make ownership clearer,
+      and help teams ship customer-critical journeys without turning production into a recurring fire drill.
     </p>
 
     <div class="now">
       <span><b>Now</b> Web Application Manager, Scoot</span>
-      <span><b>Scope</b> 20+ engineers · 8+ squads</span>
+      <span><b>Engineering scope</b> 8+ product squads · 20+ engineers</span>
       <span><b>Before</b> KrisShop · Keppel Logistics · ST Engineering</span>
     </div>
 
     <div class="actions">
-      <a class="btn primary" href="#systems">See the systems</a>
+      <a class="btn primary" href="#systems">See the work</a>
       <a class="btn" href="https://www.linkedin.com/in/genehojj" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a class="btn" href="https://github.com/geneho" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </header>
 
-  <section id="systems">
-    <div class="sec-head">
-      <div class="label">Selected systems</div>
+  <section aria-labelledby="scope-title">
+    <div class="section-head">
+      <div class="eyebrow">Current scope</div>
       <div>
-        <h2>Three pieces of work that explain me better than a skills list.</h2>
-        <p>The interesting part is rarely the framework. It is the boundary between customer experience, legacy constraints, security, operations and delivery.</p>
+        <h2 id="scope-title">The job is bigger than a framework.</h2>
+        <p>
+          My work sits where customer experience, airline platforms, security, operations and engineering
+          organisations meet. The technology matters. So do the boundaries between teams.
+        </p>
+      </div>
+    </div>
+
+    <div class="scope">
+      <div>
+        <small>Customer journeys</small>
+        <strong>Booking, manage booking, payments, loyalty and ancillaries</strong>
+      </div>
+      <div>
+        <small>Enterprise journeys</small>
+        <strong>Agency, corporate, staff travel and internal platforms</strong>
+      </div>
+      <div>
+        <small>Engineering</small>
+        <strong>Angular SPAs, mobile, application middleware, CMS and integrations</strong>
+      </div>
+      <div>
+        <small>Operating reality</small>
+        <strong>Reliability, security, regression, incidents and release governance</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="systems">
+    <div class="section-head">
+      <div class="eyebrow">Selected systems</div>
+      <div>
+        <h2>What changed, why we changed it, and what I was accountable for.</h2>
+        <p>I prefer showing a few decisions in depth rather than listing every technology I have touched.</p>
       </div>
     </div>
 
     <article class="case">
       <div>
-        <div class="kicker">Scoot · Payments</div>
-        <h3>Decoupling payment releases from every platform that used payments.</h3>
+        <div class="eyebrow">Scoot · Payments</div>
+        <h3>Giving payments its own release lifecycle.</h3>
         <p>
-          Payments originally shipped as a <strong>microfrontend module</strong> embedded inside each consuming platform.
-          That created a practical problem: when the payment team released a change, every platform had to pick up
-          and deploy the new module version before customers could benefit from it.
+          Payments originally shipped as a <strong>microfrontend embedded inside consuming applications</strong>.
+          That made a payment change dependent on each platform picking up and deploying a new module version.
         </p>
         <p>
-          We pushed to move that responsibility out of the host applications and into an
-          <strong>in-house Hosted Payment Page</strong>. The integration boundary became simpler:
-          platforms hand off to payments, while the payment team can evolve payment methods, FX and DCC
-          without coordinating an application upgrade across every consumer.
+          We changed the boundary. Payment responsibility moved behind an
+          <strong>in-house Hosted Payment Page</strong>, so consuming applications hand off to a capability
+          that can evolve independently.
         </p>
         <p>
-          The important change was not just technical. It gave the payment capability
-          <strong>its own release lifecycle and clearer ownership.</strong>
+          The architectural point was simple: payment methods, FX and DCC should not require coordinated
+          releases across every booking or servicing platform.
         </p>
-        <div class="metric">
-          <span>14+ payment methods</span>
-          <span>5 platforms</span>
-          <span>independent releases</span>
-          <span>multi-currency + DCC</span>
+
+        <div class="myrole">
+          <small>My role</small>
+          <p>
+            Drove the application-side technical direction and cross-platform adoption, working across payment
+            and consuming product teams to move from embedded ownership to a cleaner service boundary.
+          </p>
+        </div>
+
+        <div class="factgrid">
+          <div class="fact"><small>Scale</small><span>14+ payment methods</span></div>
+          <div class="fact"><small>Consumers</small><span>5 platforms</span></div>
+          <div class="fact"><small>Capability</small><span>Multi-currency + DCC</span></div>
+          <div class="fact"><small>Outcome</small><span>Independent releases</span></div>
         </div>
       </div>
-      <div class="diagram">
-        <div class="title">Before → after</div>
+
+      <aside class="diagram">
+        <div class="diagram-title">Before → after</div>
         <div class="flow">
-          <div class="node">Before: Payment microfrontend embedded in each platform</div>
-          <div class="arrow">↓ every payment update required consumer upgrades</div>
-          <div class="node">Booking · MMB · Agency · other platforms</div>
+          <div class="node">Payment microfrontend embedded in each platform</div>
+          <div class="arrow">↓ every change creates consumer release dependency</div>
+          <div class="node">Booking · MMB · Agency · other journeys</div>
           <div class="arrow">↓</div>
-          <div class="node accent">After: Hosted Payment Page with its own release lifecycle</div>
-          <div class="arrow">↓</div>
-          <div class="node">Payment methods · FX · DCC · downstream providers</div>
+          <div class="node accent">Hosted Payment Page</div>
+          <div class="arrow">↓ independent capability lifecycle</div>
+          <div class="node">Payment methods · FX · DCC · providers</div>
         </div>
-      </div>
+      </aside>
     </article>
 
     <article class="case">
       <div>
-        <div class="kicker">Scoot · Loyalty</div>
-        <h3>Making KrisFlyer redemption work inside the Scoot journey.</h3>
+        <div class="eyebrow">Scoot · Loyalty</div>
+        <h3>Making KrisFlyer redemption feel native inside a low-cost airline journey.</h3>
         <p>
-          Award Chart and Spontaneous Escape let KrisFlyer members redeem miles directly for Scoot flights
-          and ancillaries. That sounds simple at the UI. Underneath it means aligning airline inventory,
-          loyalty rules, booking flows and operational behaviour without turning the customer journey into
-          a collection of special cases.
+          Loyalty sounds like a front-end feature until it meets inventory, fare logic, ancillaries,
+          fulfilment, refunds and operational behaviour. Award Chart, Spontaneous Escape and wider
+          redemption capability required those systems to behave as one customer journey.
         </p>
         <p>
-          The work is a good example of what I enjoy: <strong>cross-system product problems where architecture
-          and business rules are inseparable.</strong>
+          I like this class of problem because <strong>architecture and business rules cannot be separated</strong>.
+          The customer should see one coherent journey even when multiple airline and loyalty systems sit underneath it.
         </p>
-        <div class="metric">
-          <span>loyalty</span>
-          <span>B2C booking</span>
-          <span>ancillaries</span>
-          <span>millions of miles redeemed</span>
+
+        <div class="myrole">
+          <small>My role</small>
+          <p>
+            Led the application engineering side across web and dependent service integrations, translating loyalty
+            and commercial rules into an implementation teams could support in production.
+          </p>
+        </div>
+
+        <div class="factgrid">
+          <div class="fact"><small>Journeys</small><span>Booking + ancillaries</span></div>
+          <div class="fact"><small>Domain</small><span>KrisFlyer redemption</span></div>
+          <div class="fact"><small>Scale</small><span>Millions of miles redeemed</span></div>
+          <div class="fact"><small>Constraint</small><span>Cross-system fulfilment</span></div>
         </div>
       </div>
-      <div class="diagram">
-        <div class="title">What the customer should not have to think about</div>
+
+      <aside class="diagram">
+        <div class="diagram-title">What customers should not have to think about</div>
         <div class="flow">
-          <div class="node">Search &amp; booking journey</div>
+          <div class="node">Search & booking journey</div>
           <div class="arrow">↓</div>
-          <div class="node accent">Redemption rules &amp; orchestration</div>
+          <div class="node accent">Redemption rules & orchestration</div>
           <div class="arrow">↓</div>
-          <div class="node">Airline inventory · loyalty · fulfilment</div>
+          <div class="node">Airline inventory · loyalty · pricing · fulfilment</div>
         </div>
-      </div>
+      </aside>
     </article>
 
     <article class="case">
       <div>
-        <div class="kicker">Scoot · Platform modernisation</div>
-        <h3>Modernising applications without creating eight different “modern” stacks.</h3>
+        <div class="eyebrow">Scoot · Platform modernisation</div>
+        <h3>Reducing application fragmentation without pretending every layer belongs to one team.</h3>
         <p>
-          More than seven legacy web applications were moved toward reusable SPA and API-first patterns.
-          The point was not simply to replace old technology. It was to make teams faster by reducing
-          one-off architecture and giving squads patterns they could own.
+          More than seven legacy web applications were modernised toward a common
+          <strong>Angular SPA architecture</strong>. The goal was not simply to replace older front-end technology.
+          It was to reduce one-off application patterns, make upgrades repeatable and give squads a clearer
+          engineering baseline.
         </p>
         <p>
-          I also combined separate web and mobile tracks into cross-platform full-stack squads.
-          Fewer hand-offs, clearer accountability, and one team owning the customer journey end to end.
+          The applications do not talk directly to the core airline systems. Product squads work through their
+          application middleware and a <strong>shared middleware layer</strong> that provides reusable airline logic.
+          That shared layer is owned outside my team, but it forms an important boundary across squads.
         </p>
-        <div class="metric">
-          <span>7+ applications</span>
-          <span>web + mobile</span>
-          <span>API-first</span>
-          <span>end-to-end ownership</span>
+        <p>
+          That matters because product teams do not each need to understand or re-implement every airline-system
+          integration detail. Shared capabilities stay shared; application teams can focus on their customer journeys.
+        </p>
+
+        <div class="myrole">
+          <small>My role</small>
+          <p>
+            Set and reinforced common application patterns across the estate, led migration toward Angular SPAs,
+            and shaped how consuming squads integrate with shared middleware capabilities without duplicating
+            underlying airline logic.
+          </p>
+        </div>
+
+        <div class="factgrid">
+          <div class="fact"><small>Estate</small><span>7+ applications</span></div>
+          <div class="fact"><small>Frontend</small><span>Angular SPA</span></div>
+          <div class="fact"><small>Integration</small><span>App middleware + shared layer</span></div>
+          <div class="fact"><small>Outcome</small><span>Less duplicated application logic</span></div>
         </div>
       </div>
-      <div class="diagram">
-        <div class="title">The organisational change matters too</div>
+
+      <aside class="diagram">
+        <div class="diagram-title">Shared capability boundary</div>
         <div class="flow">
-          <div class="node">Before: Web → Mobile → Backend → hand-offs</div>
+          <div class="node">Booking · MMB · Agency · Loyalty · Mobile</div>
           <div class="arrow">↓</div>
-          <div class="node accent">Cross-platform product squad</div>
+          <div class="node">Application middleware</div>
           <div class="arrow">↓</div>
-          <div class="node">Own the journey, architecture and production outcome</div>
+          <div class="node accent">Shared middleware capabilities</div>
+          <div class="arrow">↓</div>
+          <div class="node">Reservation, inventory &amp; other airline systems</div>
+        </div>
+      </aside>
+    </article>
+
+    <article class="case">
+      <div>
+        <div class="eyebrow">Scoot · Production engineering</div>
+        <h3>Shipping is only half the job. The other half is operating what you shipped.</h3>
+        <p>
+          Airline customer journeys have a low tolerance for “mostly working.” Release quality depends on
+          regression discipline, security remediation, production observability, rollback decisions and teams
+          knowing who owns the issue when multiple systems are involved.
+        </p>
+        <p>
+          I treat reliability as <strong>part of product delivery</strong>, not an operations problem that begins
+          after engineering declares a feature complete.
+        </p>
+
+        <div class="myrole">
+          <small>My role</small>
+          <p>
+            Set delivery expectations across squads, including regression readiness, production verification,
+            security findings and incident ownership — while keeping enough technical depth to challenge failure modes.
+          </p>
+        </div>
+
+        <div class="factgrid">
+          <div class="fact"><small>Release</small><span>Regression before PO verification</span></div>
+          <div class="fact"><small>Quality</small><span>Mobile is non-negotiable</span></div>
+          <div class="fact"><small>Security</small><span>Findings treated as delivery work</span></div>
+          <div class="fact"><small>Operations</small><span>Clear incident ownership</span></div>
         </div>
       </div>
+
+      <aside class="diagram">
+        <div class="diagram-title">Definition of done</div>
+        <div class="flow">
+          <div class="node">Feature complete</div>
+          <div class="arrow">↓</div>
+          <div class="node">Regression · security · production checks</div>
+          <div class="arrow">↓</div>
+          <div class="node accent">Release with an owner</div>
+          <div class="arrow">↓</div>
+          <div class="node">Observe · verify · recover when needed</div>
+        </div>
+      </aside>
     </article>
   </section>
 
-  <section id="how">
-    <div class="sec-head">
-      <div class="label">How I work</div>
+  <section id="operating">
+    <div class="section-head">
+      <div class="eyebrow">Operating model</div>
       <div>
         <h2>I became a manager. I did not stop caring how the system works.</h2>
-        <p>These are the habits I try to protect as teams and platforms get larger.</p>
+        <p>
+          My leverage is no longer writing the most code. It is creating conditions where engineering judgement
+          survives scale.
+        </p>
       </div>
     </div>
 
-    <div class="principles">
-      <div class="principle">
-        <h3>Teams should own journeys, not tickets.</h3>
-        <p>Splitting responsibility by frontend, mobile and backend creates queues. I prefer squads that can take a customer problem from design to production.</p>
+    <div class="operating">
+      <div class="op">
+        <h3>Own journeys, not tickets.</h3>
+        <p>Teams should be able to take a customer problem from design to production instead of waiting on a chain of specialised queues.</p>
       </div>
-      <div class="principle">
+      <div class="op">
         <h3>Reliability is product work.</h3>
-        <p>Security findings, production behaviour and operational constraints are part of delivery, not chores to throw over the wall after the feature is finished.</p>
+        <p>Security, regression, observability and production behaviour are part of delivery, not post-launch chores.</p>
       </div>
-      <div class="principle">
-        <h3>New technology has to earn its place.</h3>
-        <p>I am experimenting with AI-augmented software delivery, but I care about measured improvement in quality and velocity more than adopting something because it is fashionable.</p>
+      <div class="op">
+        <h3>Technology has to earn its place.</h3>
+        <p>New tools are useful when they measurably improve quality, speed or operability — not because the category is fashionable.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Platform footprint</div>
+      <div>
+        <h2>The context behind the decisions.</h2>
+        <p>Not a skills bingo card. These are the technologies and systems that show up repeatedly in the work.</p>
+      </div>
+    </div>
+
+    <div class="footprint">
+      <div class="stack">
+        <h3>Application & platform</h3>
+        <div class="tags">
+          <span class="tag">Angular</span>
+          <span class="tag">.NET</span>
+          <span class="tag">Flutter</span>
+          <span class="tag">CMS</span>
+          <span class="tag">Containers</span>
+          <span class="tag">Feature flags</span>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Airline & integration</h3>
+        <div class="tags">
+          <span class="tag">Reservation systems</span>
+          <span class="tag">Application middleware</span>
+          <span class="tag">Shared services</span>
+          <span class="tag">Integration platforms</span>
+          <span class="tag">Payments</span>
+          <span class="tag">Loyalty</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="ai">
+      <div>
+        <div class="eyebrow" style="color:#e2bd31">Applied AI</div>
+        <h3>I am more interested in whether AI survives an evaluation than whether it demos well.</h3>
+        <p>
+          I use AI in software delivery and domain experiments, but I prefer a measurable baseline, a test set and
+          deterministic controls over “the model looked smart in the meeting.”
+        </p>
+        <p>
+          In one airline-domain experiment, we measured an LLM/RAG approach against representative real-world cases,
+          added business context, found where additional context reduced accuracy, and refined the surrounding rules
+          rather than assuming the larger prompt was automatically better.
+        </p>
+      </div>
+
+      <div class="eval">
+        <div class="row"><b>1 · Hypothesis</b><br><span>Define what the model should improve.</span></div>
+        <div class="row"><b>2 · Evaluation set</b><br><span>Test representative real-world cases.</span></div>
+        <div class="row"><b>3 · Baseline</b><br><span>Measure before adding more context or agents.</span></div>
+        <div class="row"><b>4 · Controls</b><br><span>Keep business rules deterministic where failure matters.</span></div>
+        <div class="row"><b>5 · Decision</b><br><span>Adopt only when the result is better, not just newer.</span></div>
       </div>
     </div>
   </section>
 
   <section id="career">
-    <div class="sec-head">
-      <div class="label">Career</div>
-      <div>
-        <h2>Still technical, just operating at a different altitude.</h2>
-      </div>
+    <div class="section-head">
+      <div class="eyebrow">Career</div>
+      <div><h2>Still technical, just operating at a different altitude.</h2></div>
     </div>
 
     <div class="career">
       <div class="role">
         <time>2023 — now</time>
-        <div><h3>Web Application Manager · Scoot</h3><p>Engineering leadership across B2B, B2C, payments and loyalty.</p></div>
+        <div><h3>Web Application Manager · Scoot</h3><p>Engineering leadership across B2B, B2C, payments, loyalty and customer web platforms.</p></div>
       </div>
       <div class="role">
         <time>2022 — 2023</time>
@@ -313,35 +606,33 @@ footer{padding:0 0 44px;display:flex;justify-content:space-between;gap:20px;flex
       </div>
       <div class="role">
         <time>2015 — 2020</time>
-        <div><h3>Software engineering · ST Engineering / Keppel Logistics</h3><p>From application development to mobile, serverless AWS and technical leadership.</p></div>
+        <div><h3>Software engineering · ST Engineering / Keppel Logistics</h3><p>Application development, mobile, serverless AWS and technical leadership.</p></div>
       </div>
     </div>
   </section>
 
   <section id="side">
-    <div class="sec-head">
-      <div class="label">Side quest</div>
-      <div>
-        <h2>I still like building things nobody asked for.</h2>
-      </div>
+    <div class="section-head">
+      <div class="eyebrow">Side quest</div>
+      <div><h2>I still like building things nobody asked for.</h2></div>
     </div>
 
     <div class="side">
       <div>
-        <div class="kicker">Parkar · Co-founder</div>
+        <div class="eyebrow">Parkar · Co-founder</div>
         <h3>Four friends, COVID, and an annoying parking problem.</h3>
         <p>
-          During COVID, three friends and I built Parkar for drivers in Singapore.
-          It pulled together nearby carparks, parking prices, EV charging, fuel prices,
-          traffic cameras and COE information in one place.
+          During COVID, three friends and I built Parkar for drivers in Singapore. It brought nearby carparks,
+          parking prices, EV charging, fuel prices, traffic cameras and COE information into one place.
         </p>
         <p>
-          It was not a corporate transformation programme. We had a problem, so we built something.
-          That is still the part of software I enjoy most.
+          It was not a transformation programme. We had a problem, built something, tested it with real people
+          and removed whatever did not help.
         </p>
-        <p class="tiny"><a href="https://github.com/geneho/ParkarSite" target="_blank" rel="noopener">View Parkar on GitHub ↗</a></p>
+        <p><a href="https://github.com/geneho/ParkarSite" target="_blank" rel="noopener">View Parkar on GitHub ↗</a></p>
       </div>
-      <div class="side-code">problem = "parking is annoying"
+
+      <pre class="code">problem = "parking is annoying"
 
 friends = 4
 meetings = "as few as possible"
@@ -351,14 +642,17 @@ while problem:
     test_with_real_people()
     remove_unnecessary_stuff()
 
-ship()</div>
+ship()</pre>
     </div>
   </section>
 
   <section id="contact" class="footer-cta">
-    <div class="kicker">Say hello</div>
-    <h2>Airline commerce, payments, engineering teams — or weird side projects.</h2>
-    <p>I am based in Singapore. If any of those overlap with what you are working on, I am happy to connect.</p>
+    <div class="eyebrow">Say hello</div>
+    <h2>Airline commerce, engineering platforms, production systems — or strange side projects.</h2>
+    <p>
+      I am based in Singapore. If you are working on something where engineering, product and operating reality
+      collide, I am always interested in a good conversation.
+    </p>
     <div class="actions">
       <a class="btn primary" href="https://www.linkedin.com/in/genehojj" target="_blank" rel="noopener">Connect on LinkedIn</a>
       <a class="btn" href="https://github.com/geneho" target="_blank" rel="noopener">GitHub</a>
@@ -368,7 +662,7 @@ ship()</div>
 
   <footer>
     <span>© 2026 Gene Ho</span>
-    <span>Built as one boring HTML file. On purpose.</span>
+    <span>One HTML file. No framework required.</span>
   </footer>
 </main>
 </body>
