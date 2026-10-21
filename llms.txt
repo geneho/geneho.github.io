@@ -1,0 +1,33 @@
+# Gene Ho
+
+> Web Application Manager at Scoot (a member of Singapore Airlines), based in Singapore. Leads web and mobile engineering across airline booking, payments and loyalty: 8+ squads, 20+ engineers. Started as a software engineer in 2015.
+
+## Profile
+
+- [Portfolio](https://geneho.github.io/): selected systems, ways of working and career
+- [LinkedIn](https://www.linkedin.com/in/genehojj)
+- [GitHub](https://github.com/geneho)
+- [Stack Overflow](https://stackoverflow.com/users/2737131/gene)
+
+## Selected work at Scoot
+
+- Payments: moved payments from a module embedded in each of 5 platforms (Booking, Manage My Booking, AgencyHub, Loyalty, other web platforms) to an in-house Hosted Payment Page with its own release lifecycle. 14+ payment methods; FX and DCC brought in-house.
+- Loyalty: KrisFlyer redemption (Award Chart, Spontaneous Escape) inside the Scoot booking journey, covering flights and ancillaries. Millions of miles redeemed.
+- Platform modernisation: 7+ legacy web applications moved to a common Angular SPA pattern on application middleware and a shared middleware layer.
+
+## How I work
+
+- Squads own a customer journey from design to production, not tickets passed between specialist queues.
+- Done means it runs well in production: regression, security, a release with an owner, then observe and recover.
+- New technology, including AI, is adopted only when it measurably improves quality, speed or operability.
+
+## Career
+
+- 2023–now: Web Application Manager, Scoot
+- 2022–2023: Engineering Manager, KrisShop
+- 2020–2022: Technical Lead, KrisShop
+- 2015–2020: Software engineering, ST Engineering and Keppel Logistics
+
+## Side project
+
+- [Parkar](https://pedantic-dijkstra-3715e4.netlify.app/): co-founded app for Singapore drivers covering carparks, parking prices, EV charging, fuel prices, traffic cameras and COE prices.
