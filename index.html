@@ -34,6 +34,27 @@
   ]
 }
 </script>
+<script>
+// Google Analytics 4 — only on the live site, so local previews don't count as visits
+if (location.hostname === "geneho.github.io") {
+  var ga = document.createElement("script");
+  ga.async = true;
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-EXW4NX4VFW";
+  document.head.appendChild(ga);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag("js", new Date());
+  gtag("config", "G-EXW4NX4VFW");
+  // Which full stories people actually open
+  addEventListener("DOMContentLoaded", function(){
+    document.querySelectorAll("details.story").forEach(function(d){
+      d.addEventListener("toggle", function(){
+        if (d.open) gtag("event", "story_open", {story: d.querySelector("summary").textContent});
+      });
+    });
+  });
+}
+</script>
 
 <style>
 :root{
