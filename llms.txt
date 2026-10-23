@@ -13,7 +13,7 @@
 
 - Payments: moved payments from a module embedded in each of 5 platforms (Booking, Manage My Booking, AgencyHub, Loyalty, other web platforms) to an in-house Hosted Payment Page with its own release lifecycle. 14+ payment methods; FX and DCC brought in-house.
 - Loyalty: KrisFlyer redemption (Award Chart, Spontaneous Escape) inside the Scoot booking journey, covering flights and ancillaries. Millions of miles redeemed.
-- Platform modernisation: 7+ legacy web applications moved to a common Angular SPA pattern on application middleware and a shared middleware layer.
+- Platform modernisation: 7+ legacy web applications moved to a common Angular SPA pattern, with reusable architecture patterns across squads.
 
 ## How I work
 

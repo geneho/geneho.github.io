@@ -156,15 +156,11 @@ section{padding:88px 0 0}
 .note b{color:var(--ink)}
 
 /* Scope: layer map */
-.legend{display:flex;gap:14px;align-items:center}
-.sw{display:inline-block;width:11px;height:11px;margin-right:6px;vertical-align:-1px;border-radius:3px;background:var(--accent)}
-.sw.shared{background:transparent;border:2px dashed var(--muted)}
 .layer{
   display:grid;grid-template-columns:210px 1fr;gap:16px;align-items:center;margin-bottom:6px;
   padding:11px 14px;border-left:4px solid var(--accent);border-radius:0 8px 8px 0;background:var(--bg)
 }
 .layer b{font-size:14px}
-.layer.shared{border-left-style:dashed;border-left-color:var(--muted);background:transparent;color:var(--muted)}
 .across{
   display:grid;grid-template-columns:210px 1fr;gap:16px;align-items:center;margin-top:12px;
   padding:11px 14px;border:1px dashed var(--accent);border-radius:8px
@@ -263,8 +259,6 @@ section{padding:88px 0 0}
   padding:8px 10px;border:1px solid var(--accent);border-radius:0 0 7px 7px;background:var(--accent-soft);
   text-align:center;font-size:13px;font-weight:700
 }
-.tier{margin-top:6px;padding:7px 10px;border:1px solid var(--line);border-radius:6px;text-align:center;font-size:12.5px;font-weight:600}
-.tier.shared{border-style:dashed;color:var(--muted)}
 
 /* How I work: instead of / push for */
 .shifts{border-top:1px solid var(--line)}
@@ -420,14 +414,10 @@ footer{padding:0 0 44px;display:flex;justify-content:space-between;gap:20px;flex
     <figure class="fig">
       <figcaption class="fig-title">
         <span>Where my teams sit</span>
-        <span class="legend"><span><i class="sw"></i>My teams</span><span><i class="sw shared"></i>Shared with other teams</span></span>
       </figcaption>
       <div class="layer"><b>Customer journeys</b><div class="chips"><span>Booking</span><span>Manage booking</span><span>Payments</span><span>Loyalty</span><span>Ancillaries</span></div></div>
       <div class="layer"><b>Enterprise journeys</b><div class="chips"><span>AgencyHub</span><span>Corporate</span><span>Staff travel</span><span>Internal platforms</span></div></div>
       <div class="layer"><b>Applications</b><div class="chips"><span>Angular SPAs</span><span>Flutter</span><span>.NET</span><span>CMS</span><span>Containers</span><span>Feature flags</span></div></div>
-      <div class="layer"><b>Application middleware</b><div class="chips"><span>APIs</span><span>Integrations</span></div></div>
-      <div class="layer shared"><b>Shared middleware layer</b><div class="chips"><span>Reusable airline logic</span></div></div>
-      <div class="layer shared"><b>Core airline systems</b><div class="chips"><span>Reservations</span><span>Inventory</span><span>Other airline systems</span></div></div>
       <div class="across"><b>Across all of it</b><div class="chips"><span>Reliability</span><span>Security</span><span>Regression</span><span>Incidents</span><span>Release governance</span></div></div>
     </figure>
   </section>
@@ -525,7 +515,7 @@ footer{padding:0 0 44px;display:flex;justify-content:space-between;gap:20px;flex
       <div>
         <div class="eyebrow">Scoot · Platform modernisation</div>
         <h3>Seven legacy apps, one common pattern.</h3>
-        <p class="one">Fewer one-off stacks and repeatable upgrades, without every squad re-implementing airline logic.</p>
+        <p class="one">Fewer one-off stacks, repeatable upgrades and a clearer engineering baseline for every squad.</p>
         <div class="stats">
           <div><b>7+</b><small>applications</small></div>
           <div><b>1</b><small>common Angular SPA pattern</small></div>
@@ -537,19 +527,14 @@ footer{padding:0 0 44px;display:flex;justify-content:space-between;gap:20px;flex
         <div class="panel-title">Before: seven one-off stacks</div>
         <div class="apps messy"><span>App</span><span>App</span><span>App</span><span>App</span><span>App</span><span>App</span><span>App</span></div>
         <div class="down" aria-hidden="true">↓</div>
-        <div class="panel-title">After: one pattern, shared foundations</div>
+        <div class="panel-title">After: one common pattern</div>
         <div class="apps neat"><span>App</span><span>App</span><span>App</span><span>App</span><span>App</span><span>App</span><span>App</span></div>
         <div class="base">Common Angular SPA pattern</div>
-        <div class="tier">Application middleware</div>
-        <div class="tier shared">Shared middleware layer · owned by another team</div>
-        <div class="tier shared">Core airline systems</div>
       </figure>
       <details class="story">
         <summary>Read the full modernisation story</summary>
         <div class="body">
           <p>More than seven legacy web applications were modernised toward a common <strong>Angular SPA architecture</strong>. The goal was not simply to replace older front-end technology. It was to reduce one-off application patterns, make upgrades repeatable and give squads a clearer engineering baseline.</p>
-          <p>The applications do not talk directly to the core airline systems. Product squads work through their application middleware and a <strong>shared middleware layer</strong> that provides reusable airline logic. That shared layer is owned outside my team, but it forms an important boundary across squads.</p>
-          <p>That matters because product teams do not each need to understand or re-implement every airline-system integration detail. Shared capabilities stay shared; application teams can focus on their customer journeys.</p>
           <p><strong>My role:</strong> drove the modernisation of 7+ legacy web applications onto a secure, scalable SPA stack, and established reusable architecture patterns across squads.</p>
         </div>
       </details>
