@@ -1,6 +1,6 @@
 # Gene Ho
 
-> Web Application Manager at Scoot (a member of Singapore Airlines), based in Singapore. Leads web and mobile engineering across airline booking, payments and loyalty: 8+ squads, 20+ engineers. Started as a software engineer in 2015.
+> Web Application Manager at Scoot (a member of Singapore Airlines), based in Singapore. Leads web engineering across airline booking, payments and loyalty: 8+ squads, 20+ engineers. Started as a software engineer in 2015.
 
 ## Profile
 
