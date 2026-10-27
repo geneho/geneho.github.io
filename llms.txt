@@ -1,0 +1,39 @@
+# Gene Ho
+
+> Web Application Manager at Scoot (a member of Singapore Airlines), based in Singapore. Leads web engineering across airline booking, payments and loyalty: 8+ squads, 20+ engineers. Started as a software engineer in 2015.
+
+## Profile
+
+- [Portfolio](https://geneho.github.io/): selected systems, ways of working and career
+- [LinkedIn](https://www.linkedin.com/in/genehojj)
+- [GitHub](https://github.com/geneho)
+- [Stack Overflow](https://stackoverflow.com/users/2737131/gene)
+
+## Selected work at Scoot
+
+- Payments: payments used to be a module built into each of 5 platforms (Booking, Manage My Booking, AgencyHub, Loyalty and other web platforms), so every payment update meant each one had to upgrade and redeploy. Moved payments to an in-house Hosted Payment Page, so payment updates now go out once. 14+ payment methods; FX and DCC brought in-house.
+- Loyalty: paying for Scoot flights and add-ons with KrisFlyer miles (Award Chart, Spontaneous Escape). Millions of miles redeemed.
+- B2B: overhauled Scoot AgencyHub so travel agents can do their everyday tasks from one place: bookings, tickets, agency credit top-ups, group travel, information and support. Helped steer it toward a one-stop portal; the team designed and built it.
+
+## About
+
+Naturally curious; likes bringing people and ideas together to fix real problems. Outside work: badminton, photography and travel.
+
+## How I work
+
+- Leading change: management set the goal of cross-platform squads. Helping the web engineers who report to me become cross-platform (web and mobile) developers: presented the plan at Product Council and secured two sprints of pair programming, started with small mobile tasks, and kept the timeline on track while clearing blockers.
+- Sets the direction across booking, loyalty and B2B, turning business needs into a clear plan.
+- Gives tech leads room to lead: joins design reviews and helps with decisions and dependencies between teams.
+- Plans for go-live from the start: works with engineering, infrastructure and security teams; checks regression testing, security and support before a release.
+- Brings in AI where it actually helps: an AI champion leads AI use in the team, and quality, rework and speed decide what is rolled out.
+
+## Career
+
+- 2023–now: Web Application Manager, Scoot
+- 2022–2023: Engineering Manager, KrisShop
+- 2020–2022: Technical Lead, KrisShop
+- 2015–2020: Software engineering, ST Engineering and Keppel Logistics
+
+## Side project
+
+- [Parkar](https://pedantic-dijkstra-3715e4.netlify.app/): co-founded app for Singapore drivers covering carparks, parking prices, EV charging, fuel prices, traffic cameras and COE prices.
